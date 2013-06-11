@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <head><title>Beezness: Orders</title></head>
+  <link rel="stylesheet" type="text/css" href="/theme.css">
+  <body>
+    <table>
+      <tr>
+	<th>Customer
+	<th>Amount
+	<th>Flavor
+	<th>State
+	<th>Created
+      </tr>
+      {% for o in orders %}
+      <tr>
+	<td>{{ o.customer }}
+	<td>{{ o.amount }}
+	<td>{{ o.flavor }}
+	<td>{{ o.state }}
+	<td>{{ o.created }}
+      </tr>
+      {% endfor %}
+    </table>
+    <hr>
+    <form method="post" action="/new_order">
+      <input type="text" name="customer">&nbsp;wants
+      <input type="text" name="amount">&nbsp;ml of
+      <input type="text" name="flavor">&nbsp;honey
+      <input type="submit" value="ADD">
+    </form>
+    <div class="flavors">
+      {% for f in flavors %}
+      <span class="flavor">{{ f }}</span>
+      {% endfor %}
+    </div>
+  </body>
+</html>

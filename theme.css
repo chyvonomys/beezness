@@ -1,0 +1,22 @@
+body {
+    font-family: Tahoma;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #aaa;
+}
+
+th, td {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.flavor {
+    border: 1px solid orange;
+    padding-left: 5px;
+    padding-right: 5px;
+}
