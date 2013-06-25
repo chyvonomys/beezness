@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 
 <html>
-  <head><title>Beezness: Orders</title></head>
-  <link rel="stylesheet" type="text/css" href="/theme.css">
+  <head>
+    <title>Beezness: Orders</title>
+    <link rel="stylesheet" type="text/css" href="/theme.css">
+  </head>
   <body>
     <table>
       <tr>
+	<th>*
 	<th>Customer
 	<th>Amount
 	<th>Flavor
 	<th>State
 	<th>Created
+	<th>Customer State
+	<th>Distributor State
+	<th>Vendor State
       </tr>
       {% for o in orders %}
       <tr>
+	<td>{% if o.state == 'bcc' %}NEW{% endif %}
 	<td>{{ o.customer }}
 	<td>{{ o.amount }}
 	<td>{{ o.flavor }}
 	<td>{{ o.state }}
-	<td>{{ o.created }}
+	<td>{{ o.created.strftime("%d %B %Y") }}
+	<td>
+	  {% if o.state[0] == 'c' %}<span class="sprite honey" alt="honey"></span>{% endif %}
+	  {% if o.state[1] == 'c' %}<span class="sprite money" alt="money"></span>{% endif %}
+	  {% if o.state[2] == 'c' %}<span class="sprite jar" alt="jar"></span>{% endif %}
+	<td>
+	  {% if o.state[0] == 's' %}<span class="sprite honey" alt="honey"></span>{% endif %}
+	  {% if o.state[1] == 's' %}<span class="sprite money" alt="money"></span>{% endif %}
+	  {% if o.state[2] == 's' %}<span class="sprite jar" alt="jar"></span>{% endif %}
+	<td>
+	  {% if o.state[0] == 'm' %}<span class="sprite honey" alt="honey"></span>{% endif %}
+	  {% if o.state[1] == 'm' %}<span class="sprite money" alt="money"></span>{% endif %}
+	  {% if o.state[2] == 'm' %}<span class="sprite jar" alt="jar"></span>{% endif %}
       </tr>
       {% endfor %}
     </table>

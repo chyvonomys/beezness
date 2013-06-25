@@ -13,6 +13,10 @@ handlers:
   static_files: theme.css
   upload: theme\.css
 
+- url: /sprites\.png
+  static_files: sprites.png
+  upload: sprites.png
+
 - url: .*
   script: main.app
 
